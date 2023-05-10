@@ -4,20 +4,20 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 function App() {
-    const [post, setPost] = useState({});
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         axios.get("https://my-json-server.typicode.com/trungdc-ha/reactjs-ci/posts")
             .then((res) => {
-                setPost(res.data)
+                setPosts(res.data)
             })
     }, [])
 
     return (
         <>
-            <h1>{post.id}</h1>
-            <h1>{post.title}</h1>
-            <h1>{post.author}</h1>
+            <h1>{posts[0].id}</h1>
+            <h1>{posts[0].title}</h1>
+            <h1>{posts[0].author}</h1>
         </>
     );
 }
