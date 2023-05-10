@@ -1,7 +1,7 @@
 {
   "name": "reactjs-ci",
   "version": "0.1.0",
-  "homepage": "https://github.com/trungdc-ha/reactjs-ci",
+  "homepage": "https://trungdc-ha.github.io/reactjs-ci",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
