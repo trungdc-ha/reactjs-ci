@@ -4,22 +4,34 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 function App() {
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios.get("https://my-json-server.typicode.com/trungdc-ha/reactjs-ci/posts")
-            .then((res) => {
-                setPosts(res.data)
-            })
+        const fetchData = async () => {
+            try {
+                const res = await axios.get("https://my-json-server.typicode.com/trungdc-ha/reactjs-ci/posts")
+                console.log(res)
+                setPosts(res.data);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        fetchData()
     }, [])
 
     return (
         <>
-            <h1>{posts[0].id}</h1>
-            <h1>{posts[0].title}</h1>
-            <h1>{posts[0].author}</h1>
+            {
+                posts.map((value) => (
+                    <div key={value.id}>
+                        <h1>{value.id}</h1>
+                        <h1>{value.title}</h1>
+                        <h1>{value.author}</h1>
+                    </div>
+                ))
+            }
         </>
-    );
+    )
 }
 
 export default App;
